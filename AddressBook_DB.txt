@@ -114,4 +114,72 @@ mysql> SELECT * FROM addressBook;
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 
+UC_4: TO EDIT EXISTING CONTACT PERSON USING THEIR NAME
+
+//Before Editing Contact
+
+mysql> SELECT * FROM addressBook WHERE FirstName = 'Nagasai';
++-----------+----------+---------+-----------+-----------+---------+--------------+------------------------------+
+| firstName | lastName | address | city      | state     | zipCode | phone_Number | eMail_Address                |
++-----------+----------+---------+-----------+-----------+---------+--------------+------------------------------+
+| Nagasai   | Amabati  | 5-614/8 | Bangalore | Karnataka |  456124 | 9456123789   | nagasai.amabati456@gmail.com |
++-----------+----------+---------+-----------+-----------+---------+--------------+------------------------------+
+1 row in set (0.00 sec)
+
+mysql> UPDATE addressBook SET Address = '6-421/45', ZipCode = 458741 WHERE FirstName = 'Nagasai';
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+//After Editing Contact
+
+mysql> SELECT * FROM addressBook WHERE FirstName = 'Nagasai';
++-----------+----------+----------+-----------+-----------+---------+--------------+------------------------------+
+| firstName | lastName | address  | city      | state     | zipCode | phone_Number | eMail_Address                |
++-----------+----------+----------+-----------+-----------+---------+--------------+------------------------------+
+| Nagasai   | Amabati  | 6-421/45 | Bangalore | Karnataka |  458741 | 9456123789   | nagasai.amabati456@gmail.com |
++-----------+----------+----------+-----------+-----------+---------+--------------+------------------------------+
+1 row in set (0.00 sec)
+
+//Before Editing Contact
+
+mysql> SELECT * FROM addressBook WHERE FirstName = 'Pallavi';
++-----------+-------------+---------+----------+----------------+---------+--------------+------------------------------+
+| firstName | lastName    | address | city     | state          | zipCode | phone_Number | eMail_Address                |
++-----------+-------------+---------+----------+----------------+---------+--------------+------------------------------+
+| Pallavi   | Maddimsetti | 9-50    | Ubalanka | Andhra Pradesh |  533845 | 9666719945   | pallavi.krishna123@gmail.com |
++-----------+-------------+---------+----------+----------------+---------+--------------+------------------------------+
+1 row in set (0.00 sec)
+
+mysql> UPDATE addressBook SET eMail_Address = 'pallavikrishna.maddimsetti@gmail.com', phone_Number = 9669458741 WHERE FirstName = 'Pallavi';
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+//After Editing the Contact
+
+mysql> SELECT * FROM addressBook WHERE FirstName = 'Pallavi';
++-----------+-------------+---------+----------+----------------+---------+--------------+--------------------------------------+
+| firstName | lastName    | address | city     | state          | zipCode | phone_Number | eMail_Address                        |
++-----------+-------------+---------+----------+----------------+---------+--------------+--------------------------------------+
+| Pallavi   | Maddimsetti | 9-50    | Ubalanka | Andhra Pradesh |  533845 | 9669458741   | pallavikrishna.maddimsetti@gmail.com |
++-----------+-------------+---------+----------+----------------+---------+--------------+--------------------------------------+
+1 row in set (0.00 sec)
+
+//After Updation the Contacts, The AddressBook Table:
+
+mysql> SELECT * FROM addressBook;
++-----------+-------------+----------+-------------+----------------+---------+--------------+--------------------------------------+
+| firstName | lastName    | address  | city        | state          | zipCode | phone_Number | eMail_Address                        |
++-----------+-------------+----------+-------------+----------------+---------+--------------+--------------------------------------+
+| Balrama   | Maddimsetti | 8-37     | Gopalapuram | Andhra Pradesh |  533274 | 9666917945   | maddimsetti143@gmail.com             |
+| Krishna   | Maddimsetti | 8-47     | Ravulapalem | Andhra Pradesh |  533274 | 9849751485   | krishna123@gmail.com                 |
+| Nagasai   | Amabati     | 6-421/45 | Bangalore   | Karnataka      |  458741 | 9456123789   | nagasai.amabati456@gmail.com         |
+| Pallavi   | Maddimsetti | 9-50     | Ubalanka    | Andhra Pradesh |  533845 | 9669458741   | pallavikrishna.maddimsetti@gmail.com |
+| Sowmith   | Narayanam   | 4-51/5   | Bangalore   | Karnataka      |  533270 | 9955221145   | sowmith.sowmith123@gmail.com         |
+| Vineetha  | Akula       | 8-50     | Gopalapuram | Andhra Pradesh |  533274 | 8684178920   | vineetha123@gmail.com                |
++-----------+-------------+----------+-------------+----------------+---------+--------------+--------------------------------------+
+6 rows in set (0.00 sec)
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+
 
