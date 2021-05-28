@@ -37,4 +37,39 @@ mysql> SELECT DATABASE();
 ------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------
 
+UC_2: CREATE A ADDRESS BOOK TABLE WITH FIRST AND LAST NAMES,ADDRESS, CITY, STATE, ZIP, PHONE NUMBER, AND EMAIL AS ITS ATTRIBUTES
+
+mysql> CREATE TABLE addressBook
+    -> (
+    -> firstName       VARCHAR(150) NOT NULL,
+    -> lastName        VARCHAR(150) NOT NULL,
+    -> address         VARCHAR(250) NOT NULL,
+    -> city            VARCHAR(150) NOT NULL,
+    -> state           VARCHAR(150) NOT NULL,
+    -> zipCode         int(10) NOT NULL,
+    -> phone_Number    VARCHAR(150) NOT NULL,
+    -> eMail_Address   VARCHAR(250) NOT NULL,
+    -> PRIMARY KEY (firstName)
+    -> );
+Query OK, 0 rows affected (0.37 sec)
+
+mysql> DESCRIBE addressBook
+    -> ;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| firstName     | varchar(150) | NO   | PRI | NULL    |       |
+| lastName      | varchar(150) | NO   |     | NULL    |       |
+| address       | varchar(250) | NO   |     | NULL    |       |
+| city          | varchar(150) | NO   |     | NULL    |       |
+| state         | varchar(150) | NO   |     | NULL    |       |
+| zipCode       | int(10)      | NO   |     | NULL    |       |
+| phone_Number  | varchar(150) | NO   |     | NULL    |       |
+| eMail_Address | varchar(250) | NO   |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------
+
 
