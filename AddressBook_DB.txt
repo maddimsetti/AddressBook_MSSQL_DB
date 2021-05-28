@@ -204,3 +204,49 @@ mysql> SELECT * FROM addressBook;
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 
+UC_6: TO RETRIEVE PERSON BELONGING TO A CITY OR STATE FROM THE ADDRESSBOOK
+
+mysql> INSERT INTO addressBook (firstName,lastName,address,city,state,zipCode,phone_Number,eMail_Address) VALUES
+    -> ( 'Sowmith', 'Narayanam', '4-51/5', 'Bangalore', 'Karnataka', 533270, '9955221145', 'sowmith.sowmith123@gmail.com' );
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO addressBook (firstName,lastName,address,city,state,zipCode,phone_Number,eMail_Address) VALUES
+    -> ( 'Vineetha', 'Akula', '8-50', 'Gopalapuram', 'Andhra Pradesh', 533274, '8684178920', 'vineetha123@gmail.com' );
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SELECT * FROM addressBook;
++-----------+-------------+----------+-------------+----------------+---------+--------------+--------------------------------------+
+| firstName | lastName    | address  | city        | state          | zipCode | phone_Number | eMail_Address                        |
++-----------+-------------+----------+-------------+----------------+---------+--------------+--------------------------------------+
+| Balrama   | Maddimsetti | 8-37     | Gopalapuram | Andhra Pradesh |  533274 | 9666917945   | maddimsetti143@gmail.com             |
+| Krishna   | Maddimsetti | 8-47     | Ravulapalem | Andhra Pradesh |  533274 | 9849751485   | krishna123@gmail.com                 |
+| Nagasai   | Amabati     | 6-421/45 | Bangalore   | Karnataka      |  458741 | 9456123789   | nagasai.amabati456@gmail.com         |
+| Pallavi   | Maddimsetti | 9-50     | Ubalanka    | Andhra Pradesh |  533845 | 9669458741   | pallavikrishna.maddimsetti@gmail.com |
+| Sowmith   | Narayanam   | 4-51/5   | Bangalore   | Karnataka      |  533270 | 9955221145   | sowmith.sowmith123@gmail.com         |
+| Vineetha  | Akula       | 8-50     | Gopalapuram | Andhra Pradesh |  533274 | 8684178920   | vineetha123@gmail.com                |
++-----------+-------------+----------+-------------+----------------+---------+--------------+--------------------------------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT FirstName,LastName FROM addressBook WHERE City = 'Gopalapuram';
++-----------+-------------+
+| FirstName | LastName    |
++-----------+-------------+
+| Balrama   | Maddimsetti |
+| Vineetha  | Akula       |
++-----------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT firstName,lastName FROM addressBook WHERE state = 'Andhra Pradesh';
++-----------+-------------+
+| firstName | lastName    |
++-----------+-------------+
+| Balrama   | Maddimsetti |
+| Krishna   | Maddimsetti |
+| Pallavi   | Maddimsetti |
+| Vineetha  | Akula       |
++-----------+-------------+
+4 rows in set (0.00 sec)
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------
+
