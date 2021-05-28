@@ -1,1 +1,40 @@
 Welcome To Address Book Service DataBase Program
+
+UC_1: CREATE A ADDRESSBOOK SERVICE DATABASE
+
+mysql> CREATE DATABASE addressBook_services;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
++----------------------+
+| Database             |
++----------------------+
+| information_schema   |
+| addressbook_service  |
+| addressbook_services |
+| cts                  |
+| mysql                |
+| payroll_service      |
+| payroll_services     |
+| performance_schema   |
+| sakila               |
+| sys                  |
+| test                 |
+| world                |
++----------------------+
+12 rows in set (0.00 sec)
+
+mysql> USE addressBook_services;
+Database changed
+mysql> SELECT DATABASE();
++----------------------+
+| DATABASE()           |
++----------------------+
+| addressbook_services |
++----------------------+
+1 row in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
