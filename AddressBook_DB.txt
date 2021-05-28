@@ -72,4 +72,46 @@ mysql> DESCRIBE addressBook
 -------------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------------------------------
 
+UC_3: TO INSERT NEW CONTACTS TO ADDRESS BOOK
+
+mysql> INSERT INTO addressBook (firstName,lastName,address,city,state,zipCode,phone_Number,eMail_Address) VALUES
+    -> ( 'Balrama', 'Maddimsetti', '8-37', 'Gopalapuram', 'Andhra Pradesh', 533274, '9666917945', 'maddimsetti143@gmail.com' );
+Query OK, 1 row affected (0.09 sec)
+
+mysql> INSERT INTO addressBook (firstName,lastName,address,city,state,zipCode,phone_Number,eMail_Address) VALUES
+    -> ( 'Pallavi', 'Maddimsetti', '9-50', 'Ubalanka', 'Andhra Pradesh', 533845, '9666719945', 'pallavi.krishna123@gmail.com' );
+Query OK, 1 row affected (0.09 sec)
+
+mysql> INSERT INTO addressBook (firstName,lastName,address,city,state,zipCode,phone_Number,eMail_Address) VALUES
+    -> ( 'Krishna', 'Maddimsetti', '8-47', 'Ravulapalem', 'Andhra Pradesh', 533274, '9849751485', 'krishna123@gmail.com' );
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO addressBook (firstName,lastName,address,city,state,zipCode,phone_Number,eMail_Address) VALUES
+    -> ( 'Vineetha', 'Akula', '8-50', 'Gopalapuram', 'Andhra Pradesh', 533274, '8684178920', 'vineetha123@gmail.com' );
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO addressBook (firstName,lastName,address,city,state,zipCode,phone_Number,eMail_Address) VALUES
+    -> ( 'Sowmith', 'Narayanam', '4-51/5', 'Bangalore', 'Karnataka', 533270, '9955221145', 'sowmith.sowmith123@gmail.com' );
+Query OK, 1 row affected (0.08 sec)
+
+mysql> INSERT INTO addressBook (firstName,lastName,address,city,state,zipCode,phone_Number,eMail_Address) VALUES
+    -> ( 'Nagasai', 'Amabati', '5-614/8', 'Bangalore', 'Karnataka', 456124, '9456123789', 'nagasai.amabati456@gmail.com' );
+Query OK, 1 row affected (0.06 sec)
+
+mysql> SELECT * FROM addressBook;
++-----------+-------------+---------+-------------+----------------+---------+--------------+------------------------------+
+| firstName | lastName    | address | city        | state          | zipCode | phone_Number | eMail_Address                |
++-----------+-------------+---------+-------------+----------------+---------+--------------+------------------------------+
+| Balrama   | Maddimsetti | 8-37    | Gopalapuram | Andhra Pradesh |  533274 | 9666917945   | maddimsetti143@gmail.com     |
+| Krishna   | Maddimsetti | 8-47    | Ravulapalem | Andhra Pradesh |  533274 | 9849751485   | krishna123@gmail.com         |
+| Nagasai   | Amabati     | 5-614/8 | Bangalore   | Karnataka      |  456124 | 9456123789   | nagasai.amabati456@gmail.com |
+| Pallavi   | Maddimsetti | 9-50    | Ubalanka    | Andhra Pradesh |  533845 | 9666719945   | pallavi.krishna123@gmail.com |
+| Sowmith   | Narayanam   | 4-51/5  | Bangalore   | Karnataka      |  533270 | 9955221145   | sowmith.sowmith123@gmail.com |
+| Vineetha  | Akula       | 8-50    | Gopalapuram | Andhra Pradesh |  533274 | 8684178920   | vineetha123@gmail.com        |
++-----------+-------------+---------+-------------+----------------+---------+--------------+------------------------------+
+6 rows in set (0.00 sec)
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+
 
