@@ -182,4 +182,25 @@ mysql> SELECT * FROM addressBook;
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 
+UC_5: TO DELETE A PERSON USING PERSON'S NAME
+
+mysql> DELETE FROM addressBook WHERE firstName = 'Sowmith';
+Query OK, 1 row affected (0.11 sec)
+
+mysql> DELETE FROM addressBook WHERE firstName = 'Vineetha';
+Query OK, 1 row affected (0.44 sec)
+
+mysql> SELECT * FROM addressBook;
++-----------+-------------+----------+-------------+----------------+---------+--------------+--------------------------------------+
+| firstName | lastName    | address  | city        | state          | zipCode | phone_Number | eMail_Address                        |
++-----------+-------------+----------+-------------+----------------+---------+--------------+--------------------------------------+
+| Balrama   | Maddimsetti | 8-37     | Gopalapuram | Andhra Pradesh |  533274 | 9666917945   | maddimsetti143@gmail.com             |
+| Krishna   | Maddimsetti | 8-47     | Ravulapalem | Andhra Pradesh |  533274 | 9849751485   | krishna123@gmail.com                 |
+| Nagasai   | Amabati     | 6-421/45 | Bangalore   | Karnataka      |  458741 | 9456123789   | nagasai.amabati456@gmail.com         |
+| Pallavi   | Maddimsetti | 9-50     | Ubalanka    | Andhra Pradesh |  533845 | 9669458741   | pallavikrishna.maddimsetti@gmail.com |
++-----------+-------------+----------+-------------+----------------+---------+--------------+--------------------------------------+
+4 rows in set (0.00 sec)
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 
