@@ -282,3 +282,46 @@ mysql> SELECT COUNT(city), COUNT(state) FROM addressBook;
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
+
+UC_8: TO RETRIEVE ENTRIES SORTED ALPHABATECALLY BY PERSON'S NAME FOR A GIVEN CITY
+
+mysql> SELECT firstName,lastName FROM addressBook WHERE city = 'Gopalapuram' ORDER BY firstName asc;
++-----------+-------------+
+| firstName | lastName    |
++-----------+-------------+
+| Balrama   | Maddimsetti |
+| Vineetha  | Akula       |
++-----------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT firstName,lastName FROM addressBook WHERE state = 'Andhra Pradesh' ORDER BY firstName asc;
++-----------+-------------+
+| firstName | lastName    |
++-----------+-------------+
+| Balrama   | Maddimsetti |
+| Krishna   | Maddimsetti |
+| Pallavi   | Maddimsetti |
+| Vineetha  | Akula       |
++-----------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT firstName,lastName FROM addressBook WHERE state = 'Karnataka' ORDER BY lastName asc;
++-----------+-----------+
+| firstName | lastName  |
++-----------+-----------+
+| Nagasai   | Amabati   |
+| Sowmith   | Narayanam |
++-----------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT firstName,lastName FROM addressBook WHERE city = 'Bangalore' ORDER BY lastName asc;
++-----------+-----------+
+| firstName | lastName  |
++-----------+-----------+
+| Nagasai   | Amabati   |
+| Sowmith   | Narayanam |
++-----------+-----------+
+2 rows in set (0.00 sec)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------
