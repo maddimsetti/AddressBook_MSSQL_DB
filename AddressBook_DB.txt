@@ -325,3 +325,121 @@ mysql> SELECT firstName,lastName FROM addressBook WHERE city = 'Bangalore' ORDER
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------------------------
+
+UC_9: TO IDENTIFY EACH ADDRESSBOOK WITH NAME AND TYPE
+
+mysql> ALTER TABLE addressBook ADD Type VARCHAR(150) NOT NULL AFTER eMail_Address;
+Query OK, 0 rows affected (0.92 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM addressBook;
++-----------+-------------+----------+-------------+----------------+---------+--------------+--------------------------------------+------+
+| firstName | lastName    | address  | city        | state          | zipCode | phone_Number | eMail_Address                        | Type |
++-----------+-------------+----------+-------------+----------------+---------+--------------+--------------------------------------+------+
+| Balrama   | Maddimsetti | 8-37     | Gopalapuram | Andhra Pradesh |  533274 | 9666917945   | maddimsetti143@gmail.com             |      |
+| Krishna   | Maddimsetti | 8-47     | Ravulapalem | Andhra Pradesh |  533274 | 9849751485   | krishna123@gmail.com                 |      |
+| Nagasai   | Amabati     | 6-421/45 | Bangalore   | Karnataka      |  458741 | 9456123789   | nagasai.amabati456@gmail.com         |      |
+| Pallavi   | Maddimsetti | 9-50     | Ubalanka    | Andhra Pradesh |  533845 | 9669458741   | pallavikrishna.maddimsetti@gmail.com |      |
+| Sowmith   | Narayanam   | 4-51/5   | Bangalore   | Karnataka      |  533270 | 9955221145   | sowmith.sowmith123@gmail.com         |      |
+| Vineetha  | Akula       | 8-50     | Gopalapuram | Andhra Pradesh |  533274 | 8684178920   | vineetha123@gmail.com                |      |
++-----------+-------------+----------+-------------+----------------+---------+--------------+--------------------------------------+------+
+6 rows in set (0.00 sec)
+
+mysql> DESCRIBE addressBook;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| firstName     | varchar(150) | NO   | PRI | NULL    |       |
+| lastName      | varchar(150) | NO   |     | NULL    |       |
+| address       | varchar(250) | NO   |     | NULL    |       |
+| city          | varchar(150) | NO   |     | NULL    |       |
+| state         | varchar(150) | NO   |     | NULL    |       |
+| zipCode       | int(10)      | NO   |     | NULL    |       |
+| phone_Number  | varchar(150) | NO   |     | NULL    |       |
+| eMail_Address | varchar(250) | NO   |     | NULL    |       |
+| Type          | varchar(150) | NO   |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+
+mysql> UPDATE addressBook SET Type = 'Friend' WHERE FirstName = 'Krishna'or FirstName = 'Sowmith' or FirstName = 'Nagasai';
+Query OK, 3 rows affected (0.06 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> UPDATE addressBook SET Type = 'Family' WHERE firstName = 'Balrama'or firstName = 'Pallavi' or firstName = 'Vineetha';
+Query OK, 3 rows affected (0.05 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> SELECT * FROM addressBook;
++-----------+-------------+----------+-------------+----------------+---------+--------------+--------------------------------------+--------+
+| firstName | lastName    | address  | city        | state          | zipCode | phone_Number | eMail_Address                        | Type   |
++-----------+-------------+----------+-------------+----------------+---------+--------------+--------------------------------------+--------+
+| Balrama   | Maddimsetti | 8-37     | Gopalapuram | Andhra Pradesh |  533274 | 9666917945   | maddimsetti143@gmail.com             | Family |
+| Krishna   | Maddimsetti | 8-47     | Ravulapalem | Andhra Pradesh |  533274 | 9849751485   | krishna123@gmail.com                 | Friend |
+| Nagasai   | Amabati     | 6-421/45 | Bangalore   | Karnataka      |  458741 | 9456123789   | nagasai.amabati456@gmail.com         | Friend |
+| Pallavi   | Maddimsetti | 9-50     | Ubalanka    | Andhra Pradesh |  533845 | 9669458741   | pallavikrishna.maddimsetti@gmail.com | Family |
+| Sowmith   | Narayanam   | 4-51/5   | Bangalore   | Karnataka      |  533270 | 9955221145   | sowmith.sowmith123@gmail.com         | Friend |
+| Vineetha  | Akula       | 8-50     | Gopalapuram | Andhra Pradesh |  533274 | 8684178920   | vineetha123@gmail.com                | Family |
++-----------+-------------+----------+-------------+----------------+---------+--------------+--------------------------------------+--------+
+6 rows in set (0.00 sec)
+
+mysql> ALTER TABLE addressBook ADD name VARCHAR(150) NOT NULL FIRST;
+Query OK, 0 rows affected (0.78 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESCRIBE addressBook;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| name          | varchar(150) | NO   |     | NULL    |       |
+| firstName     | varchar(150) | NO   | PRI | NULL    |       |
+| lastName      | varchar(150) | NO   |     | NULL    |       |
+| address       | varchar(250) | NO   |     | NULL    |       |
+| city          | varchar(150) | NO   |     | NULL    |       |
+| state         | varchar(150) | NO   |     | NULL    |       |
+| zipCode       | int(10)      | NO   |     | NULL    |       |
+| phone_Number  | varchar(150) | NO   |     | NULL    |       |
+| eMail_Address | varchar(250) | NO   |     | NULL    |       |
+| Type          | varchar(150) | NO   |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE addressBook SET name = 'BalaramaMaddimsetti' WHERE FirstName = 'Balrama';
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE addressBook SET name = 'KrishnaMaddimsetti' WHERE FirstName = 'Krishna';
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE addressBook SET name = 'NagasaiAmbati' WHERE FirstName = 'Nagasai';
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE addressBook SET name = 'PallaviMaddimsetti' WHERE FirstName = 'Pallavi';
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE addressBook SET name = 'SowmithNarayanam' WHERE FirstName = 'Sowmith';
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE addressBook SET name = 'VinnethaAkula' WHERE FirstName = 'Vineetha';
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM addressBook;
++---------------------+-----------+-------------+----------+-------------+----------------+---------+--------------+--------------------------------------+--------+
+| name                | firstName | lastName    | address  | city        | state          | zipCode | phone_Number | eMail_Address                        | Type   |
++---------------------+-----------+-------------+----------+-------------+----------------+---------+--------------+--------------------------------------+--------+
+| BalaramaMaddimsetti | Balrama   | Maddimsetti | 8-37     | Gopalapuram | Andhra Pradesh |  533274 | 9666917945   | maddimsetti143@gmail.com             | Family |
+| KrishnaMaddimsetti  | Krishna   | Maddimsetti | 8-47     | Ravulapalem | Andhra Pradesh |  533274 | 9849751485   | krishna123@gmail.com                 | Friend |
+| NagasaiAmbati       | Nagasai   | Amabati     | 6-421/45 | Bangalore   | Karnataka      |  458741 | 9456123789   | nagasai.amabati456@gmail.com         | Friend |
+| PallaviMaddimsetti  | Pallavi   | Maddimsetti | 9-50     | Ubalanka    | Andhra Pradesh |  533845 | 9669458741   | pallavikrishna.maddimsetti@gmail.com | Family |
+| SowmithNarayanam    | Sowmith   | Narayanam   | 4-51/5   | Bangalore   | Karnataka      |  533270 | 9955221145   | sowmith.sowmith123@gmail.com         | Friend |
+| VinnethaAkula       | Vineetha  | Akula       | 8-50     | Gopalapuram | Andhra Pradesh |  533274 | 8684178920   | vineetha123@gmail.com                | Family |
++---------------------+-----------+-------------+----------+-------------+----------------+---------+--------------+--------------------------------------+--------+
+6 rows in set (0.00 sec)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
