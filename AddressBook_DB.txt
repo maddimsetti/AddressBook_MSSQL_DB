@@ -457,3 +457,28 @@ mysql> SELECT Type, COUNT(FirstName) FROM addressBook GROUP BY Type;
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+UC_11: TO ADD PERSON TO BOTH FRIEND AND FAMILY
+
+mysql> INSERT INTO addressBook (name, firstName,lastName,address,city,state,zipCode,phone_Number,eMail_Address,Type) VALUES
+    -> ( 'SahilMohammed','Sahil','Mohammed','6-45-89','Bhimavaram','Andhra Pradesh',630014,'7894854561','sahil@gamil.com','Friend' ),
+    -> ( 'SahilMohammed','Mohammed','Sahil','6-45-89','Bhimavaram','Andhra Pradesh',630014,'7894854561','sahil@gamil.com','Family' );
+Query OK, 2 rows affected (0.05 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM addressBook;
++---------------------+-----------+-------------+----------+-------------+----------------+---------+--------------+--------------------------------------+--------+
+| name                | firstName | lastName    | address  | city        | state          | zipCode | phone_Number | eMail_Address                        | Type   |
++---------------------+-----------+-------------+----------+-------------+----------------+---------+--------------+--------------------------------------+--------+
+| BalaramaMaddimsetti | Balrama   | Maddimsetti | 8-37     | Gopalapuram | Andhra Pradesh |  533274 | 9666917945   | maddimsetti143@gmail.com             | Family |
+| KrishnaMaddimsetti  | Krishna   | Maddimsetti | 8-47     | Ravulapalem | Andhra Pradesh |  533274 | 9849751485   | krishna123@gmail.com                 | Friend |
+| SahilMohammed       | Mohammed  | Sahil       | 6-45-89  | Bhimavaram  | Andhra Pradesh |  630014 | 7894854561   | sahil@gamil.com                      | Family |
+| NagasaiAmbati       | Nagasai   | Amabati     | 6-421/45 | Bangalore   | Karnataka      |  458741 | 9456123789   | nagasai.amabati456@gmail.com         | Friend |
+| PallaviMaddimsetti  | Pallavi   | Maddimsetti | 9-50     | Ubalanka    | Andhra Pradesh |  533845 | 9669458741   | pallavikrishna.maddimsetti@gmail.com | Family |
+| SahilMohammed       | Sahil     | Mohammed    | 6-45-89  | Bhimavaram  | Andhra Pradesh |  630014 | 7894854561   | sahil@gamil.com                      | Friend |
+| SowmithNarayanam    | Sowmith   | Narayanam   | 4-51/5   | Bangalore   | Karnataka      |  533270 | 9955221145   | sowmith.sowmith123@gmail.com         | Friend |
+| VinnethaAkula       | Vineetha  | Akula       | 8-50     | Gopalapuram | Andhra Pradesh |  533274 | 8684178920   | vineetha123@gmail.com                | Family |
++---------------------+-----------+-------------+----------+-------------+----------------+---------+--------------+--------------------------------------+--------+
+8 rows in set (0.01 sec)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
